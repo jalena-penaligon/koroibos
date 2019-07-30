@@ -13,6 +13,22 @@ class Olympian < ApplicationRecord
     end
   end
 
+  def self.get_stats
+    {
+      total_competing_olympians: Olympian.all.count,
+      average_weight: Olympian.average_weight,
+      average_age: Olympian.average(:age).round(2).to_f
+    }
+  end
+
+  def self.average_weight
+    {
+      unit: "kg",
+      male_olympians: Olympian.where(sex: "M").average(:weight).round(2).to_f,
+      female_olympians: Olympian.where(sex: "F").average(:weight).round(2).to_f
+    }
+  end
+
   def as_json options={}
     {
       name: name,
