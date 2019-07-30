@@ -22,13 +22,20 @@ describe "Get Olympians API" do
 
     expect(response).to be_successful
 
-    olympians = JSON.parse(response.body)
+    olympians = JSON.parse(response.body)["olympians"]
     expect(olympians.count).to eq(3)
 
-    expect(olympians).to have_key(:name)
-    expect(olympians).to have_key(:team)
-    expect(olympians).to have_key(:age)
-    expect(olympians).to have_key(:sport)
-    expect(olympians).to have_key(:total_medals_won)
+    expect(olympians.first).to have_key("name")
+    expect(olympians.first).to have_key("team")
+    expect(olympians.first).to have_key("age")
+    expect(olympians.first).to have_key("sport")
+    expect(olympians.first).to have_key("total_medals_won")
+
+    expect(olympians.first).to_not have_key("sex")
+    expect(olympians.first).to_not have_key("height")
+    expect(olympians.first).to_not have_key("weight")
+    expect(olympians.first).to_not have_key("sport_id")
+    expect(olympians.first).to_not have_key("created_at")
+    expect(olympians.first).to_not have_key("updated_at")
   end
 end
