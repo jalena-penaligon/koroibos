@@ -56,5 +56,18 @@ describe "Get Olympians API" do
     expect(olympian.first["total_medals_won"]).to eq(0)
   end
 
+  it "displays the oldest olympian" do
+    get '/api/v1/olympians?age=oldest'
 
+    expect(response).to be_successful
+
+    olympian = JSON.parse(response.body)["olympian"]
+    expect(olympian.count).to eq(1)
+
+    expect(olympian.first["name"]).to eq("Antonio Abadia Beci")
+    expect(olympian.first["team"]).to eq("Spain")
+    expect(olympian.first["age"]).to eq(26)
+    expect(olympian.first["sport"]).to eq("Athletics")
+    expect(olympian.first["total_medals_won"]).to eq(1)
+  end
 end
