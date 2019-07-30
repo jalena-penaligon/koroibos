@@ -42,6 +42,5 @@ describe "Get Olympian Stats API" do
     expect(stats["average_weight"]["male_olympians"]).to eq(64.5)
     expect(stats["average_weight"]["female_olympians"]).to eq(87.5)
     expect(stats["average_age"]).to eq(21.75)
-
   end
 end
