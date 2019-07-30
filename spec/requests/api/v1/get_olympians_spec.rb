@@ -46,7 +46,7 @@ describe "Get Olympians API" do
 
     expect(response).to be_successful
 
-    olympian = JSON.parse(response.body)
+    olympian = JSON.parse(response.body)["olympian"]
     expect(olympian.count).to eq(1)
 
     expect(olympian.first["name"]).to eq("Andreea Aanei")
