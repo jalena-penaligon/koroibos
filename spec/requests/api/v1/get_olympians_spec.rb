@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "Get Olympians API" do
-  it "sends a list of olympians" do
+  before :each do
     weightlifting = Sport.create(name: "Weightlifting")
     gymnastics = Sport.create(name: "Gymnastics")
     athletics = Sport.create(name: "Athletics")
@@ -17,7 +17,9 @@ describe "Get Olympians API" do
     andreaa_event = OlympianEvent.create(olympian_id: andreaa.id , event_id: weightlifting_event.id, medal: "NA")
     nstor_event = OlympianEvent.create(olympian_id: nstor.id, event_id: gymnastics_event.id, medal: "NA")
     antonio_event = OlympianEvent.create(olympian_id: antonio.id, event_id: athletics_event.id, medal: "Bronze")
+  end
 
+  it "sends a list of olympians" do
     get '/api/v1/olympians'
 
     expect(response).to be_successful
@@ -38,4 +40,21 @@ describe "Get Olympians API" do
     expect(olympians.first).to_not have_key("created_at")
     expect(olympians.first).to_not have_key("updated_at")
   end
+
+  it "displays the youngest olympian" do
+    get '/api/v1/olympians?age=youngest'
+
+    expect(response).to be_successful
+
+    olympian = JSON.parse(response.body)
+    expect(olympian.count).to eq(1)
+
+    expect(olympian.first["name"]).to eq("Andreea Aanei")
+    expect(olympian.first["team"]).to eq("Romania")
+    expect(olympian.first["age"]).to eq(22)
+    expect(olympian.first["sport"]).to eq("Weightlifting")
+    expect(olympian.first["total_medals_won"]).to eq(0)
+  end
+
+
 end
