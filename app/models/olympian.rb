@@ -5,6 +5,14 @@ class Olympian < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   validates_presence_of :age, :sex, :weight, :team, :height
 
+  def self.by_age(direction)
+    if direction == "youngest"
+      order(age: :asc).limit(1)
+    else direction == "oldest"
+      order(age: :desc).limit(1)
+    end
+  end
+
   def as_json options={}
     {
       name: name,
