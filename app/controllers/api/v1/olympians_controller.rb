@@ -7,7 +7,9 @@ class Api::V1::OlympiansController < ApplicationController
       }
     else
       olympian = Olympian.by_age(params["age"])
-      render json: olympian
+      render json: {
+        olympian: olympian
+      }
     end
   end
 end
