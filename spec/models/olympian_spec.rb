@@ -13,5 +13,7 @@ RSpec.describe Olympian, type: :model do
 
   describe 'relationships' do
     it { should belong_to :sport }
+    it { should have_many :olympian_events }
+    it { should have_many :events }
   end
 end
