@@ -5,7 +5,7 @@ class Sport < ApplicationRecord
 
   def as_json options={}
     {
-      name: name,
+      sport: name,
       events: self.events.pluck(:name)
     }
   end
