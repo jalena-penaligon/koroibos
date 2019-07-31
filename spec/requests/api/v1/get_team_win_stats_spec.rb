@@ -40,4 +40,15 @@ describe "Get Most Winning Team Stats API" do
     expect(wins["most_winning_team"]).to eq("Spain")
     expect(wins["total_medals"]).to eq(2)
   end
+
+  it "displays the most losing team" do
+    get '/api/v1/most_losing_team'
+
+    expect(response).to be_successful
+
+    wins = JSON.parse(response.body)
+
+    expect(wins["most_winning_team"]).to eq("Romania")
+    expect(wins["total_medals"]).to eq(0)
+  end
 end
