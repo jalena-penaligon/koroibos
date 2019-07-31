@@ -46,9 +46,9 @@ describe "Get Most Winning Team Stats API" do
 
     expect(response).to be_successful
 
-    wins = JSON.parse(response.body)
+    loss = JSON.parse(response.body)
 
-    expect(wins["most_winning_team"]).to eq("Romania")
-    expect(wins["total_medals"]).to eq(0)
+    expect(loss["most_losing_team"]).to eq("Romania")
+    expect(loss["total_medals_not_won"]).to eq(2)
   end
 end
