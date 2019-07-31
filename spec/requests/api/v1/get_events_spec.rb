@@ -6,7 +6,6 @@ describe "Get Events API" do
     gymnastics = Sport.create(name: "Gymnastics")
     athletics = Sport.create(name: "Athletics")
 
-    mens_weightlifting_event = weightlifting.events.create(name: "Weightlifting Men's Super-Heavyweight")
     womens_weightlifting_event = weightlifting.events.create(name: "Weightlifting Women's Super-Heavyweight")
     mens_gymnastics_event = gymnastics.events.create(name: "Gymnastics Men's Individual All-Around")
     womens_gymnastics_event = gymnastics.events.create(name: "Gymnastics Women's Individual All-Around")
@@ -22,13 +21,9 @@ describe "Get Events API" do
     sports = JSON.parse(response.body)["events"]
     expect(sports.count).to eq(3)
 
-    expect(sports[0]["events"].count).to eq(2)
-    expect(sports[0]["events"][0]).to eq("Weightlifting Men's Super-Heavyweight")
-    expect(sports[0]["events"][1]).to eq("Weightlifting Women's Super-Heavyweight")
-
+    expect(sports[0]["events"].count).to eq(1)
+    expect(sports[0]["events"][0]).to eq("Weightlifting Women's Super-Heavyweight")
     expect(sports[1]["events"].count).to eq(2)
-    expect(sports[1]["events"][0]).to eq("Gymnastics Men's Individual All-Around")
-    expect(sports[1]["events"][1]).to eq("Gymnastics Women's Individual All-Around")
   end
 
 end
