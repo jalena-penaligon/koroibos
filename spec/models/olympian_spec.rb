@@ -69,6 +69,10 @@ RSpec.describe Olympian, type: :model do
     it "self.most_winning_team returns the name of the most winning team" do
       expect(Olympian.most_winning_team[0].team).to eq("Spain")
     end
+
+    it "self.most_winning_team returns the name of the most winning team" do
+      expect(Olympian.most_losing_team[0].team).to eq("Romania")
+    end
   end
 
   describe 'instance methods' do
