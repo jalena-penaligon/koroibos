@@ -30,7 +30,21 @@ class Olympian < ApplicationRecord
   end
 
   def self.most_winning_team
-    OlympianEvent.select('olympians.team, count(olympian_events.id)').joins(:olympian).where.not(medal: "NA").group('olympians.team').order('count DESC').limit(1)
+    OlympianEvent.select('olympians.team, count(olympian_events.id)')
+    .joins(:olympian)
+    .where.not(medal: "NA")
+    .group('olympians.team')
+    .order('count DESC')
+    .limit(1)
+  end
+
+  def self.most_losing_team
+    OlympianEvent.select('olympians.team, count(olympian_events.id)')
+    .joins(:olympian)
+    .where(medal: "NA")
+    .group('olympians.team')
+    .order('count DESC')
+    .limit(1)
   end
 
   def as_json options={}
