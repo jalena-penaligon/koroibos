@@ -2,7 +2,7 @@
 Welcome to Koroibos, a JSON API designed to expose endpoints to display data and statistics from the 2016 Summer Olympic Games.
 
 ## Intent
-This project was completed in 7 days as a requirement for Module 4 at Turing School of Software & Design.
+This project was completed in 48 hours as a requirement for Module 4 at Turing School of Software & Design.
 
 The project was built using Ruby on Rails which implements the following:
 
@@ -11,6 +11,7 @@ The project was built using Ruby on Rails which implements the following:
 * Advanced database queries and calculations using ActiveRecord.
 
 Production URL: http://koroibos.us-east-2.elasticbeanstalk.com
+
 GitHub Projects Board: https://github.com/jalena-penaligon/koroibos/projects/1
 
 ## Tech Stack
