@@ -73,6 +73,7 @@ GitHub Projects Board: https://github.com/jalena-penaligon/koroibos/projects/1
           total_medals_won: 0
          }]
        }
+
   #### GET /api/v1/olympian_stats
       Sample Response:
       {
@@ -122,6 +123,20 @@ GitHub Projects Board: https://github.com/jalena-penaligon/koroibos/projects/1
             age: 31,
             medal: "Bronze"
           }]
+        }
+
+  #### GET /api/v1/most_winning_team
+      Sample Response:
+        {
+          most_winning_team: "United States",
+          total_medals: 51
+        }
+
+  #### GET /api/v1/most_losing_team
+      Sample Response:
+        {
+          most_losing_team: "Brazil",
+          total_medals_not_won: 156
         }
 
   ### Running Tests:
