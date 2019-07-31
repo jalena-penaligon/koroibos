@@ -28,9 +28,9 @@ describe "Get Medalists Stats API" do
 
     expect(medalists["event"]).to eq("Weightlifting Women's Super-Heavyweight")
     expect(medalists["medalists"].count).to eq(3)
-    expect(medalists["medalists"][0]).to have_key(:name)
-    expect(medalists["medalists"][0]).to have_key(:team)
-    expect(medalists["medalists"][0]).to have_key(:age)
-    expect(medalists["medalists"][0]).to have_key(:medal)
+    expect(medalists["medalists"][0]).to have_key("name")
+    expect(medalists["medalists"][0]).to have_key("team")
+    expect(medalists["medalists"][0]).to have_key("age")
+    expect(medalists["medalists"][0]).to have_key("medal")
   end
 end

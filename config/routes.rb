@@ -3,7 +3,8 @@ Rails.application.routes.draw do
     namespace :v1 do
       get '/olympians', to: 'olympians#index'
       get '/olympian_stats', to: 'olympian_stats#show'
-      get '/events', to: 'events#index' 
+      get '/events', to: 'events#index'
+      get '/events/:id/medalists', to: 'events/medalists#show' 
     end
   end
 end
