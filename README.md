@@ -143,6 +143,9 @@ GitHub Projects Board: https://github.com/jalena-penaligon/koroibos/projects/1
     Run tests with rspec:
         $ rspec
 
+  ### Schema:
+  ![schema](olympian_schema.png)
+
   ## Core Contributors:
   Jalena Taylor: https://github.com/jalena-penaligon/
 
