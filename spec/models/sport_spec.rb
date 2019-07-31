@@ -17,7 +17,7 @@ RSpec.describe Sport, type: :model do
       weightlifting_event = weightlifting.events.create(name: "Weightlifting Women's Super-Heavyweight")
 
       expect(weightlifting.as_json).to be_a(Hash)
-      expect(weightlifting.as_json).to have_key(:name)
+      expect(weightlifting.as_json).to have_key(:sport)
       expect(weightlifting.as_json[:events].count).to eq(1)
       expect(weightlifting.as_json[:events]).to be_a(Array)
     end
