@@ -25,8 +25,8 @@ describe "Get Most Winning Team Stats API" do
 
     # create olympian events
     andreaa_event = OlympianEvent.create(olympian_id: andreaa.id , event_id: weightlifting_event.id, medal: "NA")
-    nstor_event = OlympianEvent.create(olympian_id: nstor.id, event_id: gymnastics_mens_event.id, medal: "NA")
-    tabea_event = OlympianEvent.create(olympian_id: tabea.id, event_id: gymnastics_womens_event.id, medal: "Gold")
+    nstor_event = OlympianEvent.create(olympian_id: nstor.id, event_id: gymnastics_mens_event.id, medal: "Gold")
+    tabea_event = OlympianEvent.create(olympian_id: tabea.id, event_id: gymnastics_womens_event.id, medal: "NA")
     antonio_event = OlympianEvent.create(olympian_id: antonio.id, event_id: athletics_event.id, medal: "Bronze")
   end
 
@@ -37,10 +37,7 @@ describe "Get Most Winning Team Stats API" do
 
     wins = JSON.parse(response.body)
 
-    expect(wins["team"]).to eq("Spain")
-    expect(wins["medals"]["total_medals"]).to eq(2)
-    expect(wins["medals"]["gold"]).to eq(1)
-    expect(wins["medals"]["silver"]).to eq(0)
-    expect(wins["medals"]["bronze"]).to eq(1)
+    expect(wins["most_winning_team"]).to eq("Spain")
+    expect(wins["total_medals"]).to eq(2)
   end
 end
